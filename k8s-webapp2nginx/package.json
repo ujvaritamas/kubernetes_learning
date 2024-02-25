@@ -5,13 +5,16 @@
     "author": "dummy author <dummyauthor@example.com>",
     "license": "MIT",
     "main": "app.js",
-    "scripts": {"start":"node app.js"},
+    "scripts": {
+        "start": "node app.mjs"
+    },
     "keywords": [
-      "nodejs",
-      "bootstrap",
-      "express"
+        "nodejs",
+        "bootstrap",
+        "express"
     ],
     "dependencies": {
-      "express": "^4.16.4"
+        "express": "^4.16.4",
+        "node-fetch": "^3.3.2"
     }
-  }
+}

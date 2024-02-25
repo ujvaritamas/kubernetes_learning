@@ -9,6 +9,7 @@ EXPOSE 3000
 
 COPY package.json package-lock.json ./
 
+#RUN npm install node-fetch
 RUN npm install
 
 COPY . ./

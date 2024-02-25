@@ -4,7 +4,7 @@ const os = require('os');
 const app = express();
 
 app.get('/', (req, res) => {
-  console.log("get request"+ req);
+  console.log("VERSION2 get request"+ req);
   res.send('Successful response.' + os.hostname);
 });
 
