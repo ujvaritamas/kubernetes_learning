@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.examplewebapp_name }}
+spec:
+  type: LoadBalancer
+  selector:
+    app: {{ .Values.examplewebapp_name }}
+  ports:
+  - port: 3030
+    targetPort: 3000

@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.examplewebapp_name }}
+  labels:
+    app: {{ .Values.examplewebapp_name }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ .Values.examplewebapp_name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.examplewebapp_name }}
+    spec:
+      containers:
+      - name: {{ .Values.examplewebapp_name }}
+        image: tamasujvari/k8s-webapp
+        ports:
+        - containerPort: 3000
