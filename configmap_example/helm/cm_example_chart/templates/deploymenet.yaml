@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.app.name }}
+  labels:
+    app: {{ .Values.app.name }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ .Values.app.name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.app.name }}
+    spec:
+      containers:
+      - name: {{ .Values.app.name }}
+        image: {{ .Values.app.image }}
+        env:
+          - name: SECRET_USERNAME
+            valueFrom:
+              secretKeyRef:
+                name: {{ .Values.app.secret_name }}
+                key: exampleusername
+          - name: SECRET_PW
+            valueFrom:
+              secretKeyRef:
+                name: {{ .Values.app.secret_name }}
+                key: examplepassword
+        envFrom:
+        - configMapRef:
+            name: {{ .Values.app.configmap_name }}
+        ports:
+        - containerPort: {{ .Values.app.port }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.app.name }}
+spec:
+  selector:
+    app: {{ .Values.app.name }}
+  ports:
+    - protocol: TCP
+      port: {{ .Values.app.service_port }}
+      targetPort: {{ .Values.app.port }}

@@ -1,0 +1,7 @@
+app:
+  name: example-configmap-app
+  image: tamasujvari/example_configmap_app:latest
+  port: 8080
+  service_port: 8080
+  configmap_name: demo-config
+  secret_name: mysecret
