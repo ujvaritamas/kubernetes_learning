@@ -1,0 +1,13 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: my-example-job
+spec:
+  ttlSecondsAfterFinished: 100
+  template:
+    spec:
+      containers:
+      - name: my-example-job
+        image: ubuntu:24.04
+        command: ["echo", "hello"]
+      restartPolicy: Never
