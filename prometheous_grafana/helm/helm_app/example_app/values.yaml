@@ -1,0 +1,6 @@
+app:
+  name: example-app-prometheous
+  label: example-app-prometheous-label
+  image: tamasujvari/example_app_prometheus:latest
+  port: 8080
+  service_port: 8080

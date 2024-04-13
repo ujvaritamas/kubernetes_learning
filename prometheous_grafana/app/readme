@@ -1,0 +1,6 @@
+docker build -t "tamasujvari/example_app_prometheus" .
+
+docker run --name example_app_prometheus -p 8080:8080 -d tamasujvari/example_app_prometheus
+
+docker push tamasujvari/example_app_prometheus:latest
+

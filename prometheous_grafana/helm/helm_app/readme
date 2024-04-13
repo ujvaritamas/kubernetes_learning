@@ -1,0 +1,13 @@
+helm install my-example-app ./example_app --dry-run --debug
+
+kubectl create namespace exampleapp-ns
+
+helm install my-example-app ./example_app --namespace exampleapp-ns
+
+helm list --all -n exampleapp-ns
+
+#testing
+kubectl port-forward service/example-app-prometheous 8080:8080 -n exampleapp-ns
+
+
+helm uninstall my-example-app -n exampleapp-ns
