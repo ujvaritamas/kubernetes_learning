@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: operatorexample
+  labels:
+    app: operatorexample
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: operatorexample
+  template:
+    metadata:
+      labels:
+        app: operatorexample
+    spec:
+      containers:
+      - name: operator-example
+        image: tamasujvari/operator_pod:integration_test
+        imagePullPolicy: Always  # Pull the latest image every time

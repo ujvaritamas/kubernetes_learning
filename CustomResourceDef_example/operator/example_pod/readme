@@ -1,0 +1,5 @@
+docker login
+
+docker build -t tamasujvari/operator_pod .
+
+docker push tamasujvari/operator_pod

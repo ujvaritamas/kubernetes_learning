@@ -1,0 +1,8 @@
+apiVersion: example.io/v1
+kind: Greeting
+metadata:
+  name: example-my-greeting
+spec:
+  emailToGreet: hello@hello.com
+  messageToGreet: hello message
+  replicas: 1
